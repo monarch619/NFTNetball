@@ -46,7 +46,7 @@ export function NavBar() {
             <DialogClose asChild>
               <Link href="/shop">
                 <Button variant="outline" className="w-full">
-                  Play
+                Shop
                 </Button>
               </Link>
             </DialogClose>

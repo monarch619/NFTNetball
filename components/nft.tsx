@@ -7,7 +7,8 @@ import {
 import { NFT } from "@thirdweb-dev/sdk";
 import { TOOLS_ADDRESS } from "../const/addresses";
 import { ethers } from "ethers";
-import { Card, CardContent } from "~/components/ui/card";
+import { Card, CardContent, CardHeader } from "~/components/ui/card";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 type Props = {
   nft: NFT;
@@ -22,9 +23,9 @@ export default function NFTComponent({ nft }: Props) {
 
   return (
     <Card className="overflow-hidden" key={nft.metadata.id}>
-      <div>
+      <CardHeader className="p-0">
         <MediaRenderer src={nft.metadata.image} height="100%" width="100%" />
-      </div>
+      </CardHeader>
       <CardContent>
         <p className="text-lg font-bold my-5 text-center truncate">
           {nft.metadata.name}
@@ -35,12 +36,16 @@ export default function NFTComponent({ nft }: Props) {
             {" " + data?.currencyMetadata.symbol}
           </p>
         ) : (
-          <p>Loading...</p>
+          <div className="flex items-center justify-center my-3">
+            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+          </div>
         )}
         <div className="flex flex-row items-center justify-center">
           <Web3Button
+            isDisabled={isLoading}
             contractAddress={TOOLS_ADDRESS}
             action={(contract) => contract.erc1155.claim(nft.metadata.id, 1)}
+
           >
             Buy
           </Web3Button>

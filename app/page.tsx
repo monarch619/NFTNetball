@@ -39,8 +39,7 @@ export default function Home() {
     toolsContract,
     address
   );
-  console.log({ownedFarmers,loadingOwnedFarmers})
-  console.log({ownedTools,loadingOwnedTools})
+  
 
   const { data: equippedTools } = useContractRead(
     stakingContract,

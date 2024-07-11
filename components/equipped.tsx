@@ -57,7 +57,7 @@ export const Equipped = (props: EquippedProps) => {
             </div>
           </div>
           <div className="mt-5">
-            <p>Claimable $GOAL:</p>
+            <p>Claimable $GOALS:</p>
             <p>{ethers.utils.formatUnits(claimableRewards[1], 18)}</p>
             <Web3Button
               contractAddress={STAKING_ADDRESS}

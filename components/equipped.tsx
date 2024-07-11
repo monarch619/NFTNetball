@@ -44,7 +44,7 @@ export const Equipped = (props: EquippedProps) => {
             <div className="flex flex-col space-y-1 space-x-1">
               <p className="text-2xl font-bold">{nft.metadata.name}</p>
               <p>
-                Equipped: {ethers.utils.formatUnits(claimableRewards[0], 0)}
+                Staked: {ethers.utils.formatUnits(claimableRewards[0], 0)}
               </p>
               <Web3Button
                 contractAddress={STAKING_ADDRESS}
@@ -52,12 +52,12 @@ export const Equipped = (props: EquippedProps) => {
                   contract.call("withdraw", [props.tokenId, 1])
                 }
               >
-                Unequip
+                Unstake
               </Web3Button>
             </div>
           </div>
           <div className="mt-5">
-            <p>Claimable $CARROT:</p>
+            <p>Claimable $GOAL:</p>
             <p>{ethers.utils.formatUnits(claimableRewards[1], 18)}</p>
             <Web3Button
               contractAddress={STAKING_ADDRESS}
@@ -65,7 +65,7 @@ export const Equipped = (props: EquippedProps) => {
                 contract.call("claimRewards", [props.tokenId])
               }
             >
-              Claim $CARROT
+              Claim $GOAL
             </Web3Button>
           </div>
         </Card>

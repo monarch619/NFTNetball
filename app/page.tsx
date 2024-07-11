@@ -39,6 +39,8 @@ export default function Home() {
     toolsContract,
     address
   );
+  console.log({ownedFarmers,loadingOwnedFarmers})
+  console.log({ownedTools,loadingOwnedTools})
 
   const { data: equippedTools } = useContractRead(
     stakingContract,
@@ -81,7 +83,7 @@ export default function Home() {
       <div className="grid grid-cols-2 gap-10">
         <Card className="p-5">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Farmer:
+            Player:
           </h1>
           <div className="grid grid-cols-2 gap-10">
             <div>
@@ -105,9 +107,9 @@ export default function Home() {
         </Card>
         <Card className="p-5">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Inventory:
+            Players Owned:
           </h1>
-          {!loadingOwnedTools ? (
+          { loadingOwnedTools ? (
             <div className="space-y-2">
               <Skeleton className="h-4 w-[250px]" />
               <Skeleton className="h-4 w-[200px]" />
@@ -119,7 +121,7 @@ export default function Home() {
       </div>
       <Card className="p-5 my-10">
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-[30px]">
-          Equipped Tools:
+          Players Staked:
         </h1>
         <div className="grid grid-cols-3 gap-10">
           {equippedTools &&

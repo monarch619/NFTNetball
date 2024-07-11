@@ -61,7 +61,7 @@ export function Inventory({ nft }: Props) {
               contractAddress={STAKING_ADDRESS}
               action={() => stakeNFT(nft.metadata.id)}
             >
-              Equip
+              Stake
             </Web3Button>
           </div>
         </Card>

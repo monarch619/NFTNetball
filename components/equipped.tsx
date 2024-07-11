@@ -57,7 +57,7 @@ export const Equipped = (props: EquippedProps) => {
             </div>
           </div>
           <div className="mt-5">
-            <p>Claimable $CARROT:</p>
+            <p>Claimable $GOALS:</p>
             <p>{ethers.utils.formatUnits(claimableRewards[1], 18)}</p>
             <Web3Button
               contractAddress={STAKING_ADDRESS}
@@ -65,7 +65,7 @@ export const Equipped = (props: EquippedProps) => {
                 contract.call("claimRewards", [props.tokenId])
               }
             >
-              Claim $CARROT
+              Claim $GOAL
             </Web3Button>
           </div>
         </Card>
